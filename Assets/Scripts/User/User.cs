@@ -54,7 +54,7 @@ public partial class User
 
     public static string DataToString() { return JsonMapper.ToJson(data); }
 
-    
+
     public static int PlayerSession
     {
         get
@@ -68,7 +68,8 @@ public partial class User
         }
     }
 
-    public static bool Policy { 
+    public static bool Policy
+    {
         get
         {
             return data.policy;
@@ -80,7 +81,7 @@ public partial class User
         }
     }
 
-    
+
     #region Subscribe
     private static bool isSubscribe;
 
@@ -112,7 +113,7 @@ public partial class User
         Save();
     }
 
-    
+
     public static DateTime GetSecondDay()
     {
         if (!data.secondDayOpenApp.HasValue)
@@ -129,9 +130,32 @@ public partial class User
 
     public static void AddTracking(ActionCondition condition, string custom = null, bool logTracking = false)
     {
+        GameCallAction(condition, custom);
         var str = condition.GetCondition();
         str = str.Replace("-", "_");
         InGameAction.Instance.ActionInGame(str, custom);
+    }
+
+    private static void GameCallAction(ActionCondition condition, string custom)
+    {
+        switch (condition.Type)
+        {
+            case ActionType.find_object:
+                {
+                    User.Finder(condition.Alias);
+                    var story = StoryConfig.Instance.GetStory(condition.Alias);
+                    if (story != null)
+                    {
+                        AddTracking(ActionType.find_story, condition.Alias);
+                    }
+                    break;
+                }
+            case ActionType.unlock_map:
+                {
+                    User.UnlockMap(custom);
+                    break;
+                }
+        }
     }
 }
 

@@ -95,6 +95,7 @@ public class ActionCondition : ICondition
 
     public ActionType Type { get => type; }
     public int Number { get => number; }
+    public string Alias { get => alias; }
 
     public void GenerateCondition()
     {
@@ -104,8 +105,8 @@ public class ActionCondition : ICondition
     public string GetCondition()
     {
         if (number != 0)
-            return $"{type}_{alias}_{number}";
-        return $"{type}_{alias}";
+            return $"{type}_{Alias}_{number}";
+        return $"{type}_{Alias}";
     }
 }
 
@@ -170,8 +171,9 @@ public enum ActionType
     open_dialog = 3,
     unlock_map = 4,
     reply_gameplay = 5,
+    close_dialog = 6,
     pause = 7,
-    close_dialog = 6
+    find_story = 8
 }
 
 [System.Serializable]

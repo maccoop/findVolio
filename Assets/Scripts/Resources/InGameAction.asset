@@ -24,4 +24,26 @@ MonoBehaviour:
       popupUp: popup-loading
       alias: 
       custom: IMPORTAL
+  - title: open_screen_gameplay
+    condition:
+      type: 2
+      alias: gameplay
+      number: 0
+      condition: open_screen_gameplay
+    results:
+    - type: 1
+      popupUp: screen-gameplay
+      alias: 
+      custom: 
+  - title: unlock_map_
+    condition:
+      type: 4
+      alias: 
+      number: 0
+      condition: unlock_map_
+    results:
+    - type: 1
+      popupUp: popup-mapunlock
+      alias: 
+      custom: 
   result: []
