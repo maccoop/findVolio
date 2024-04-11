@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SingletonScriptableObject", menuName = "config/SingletonScriptableObject")]
+[CreateAssetMenu(fileName = "FinderConfig", menuName = "config/FinderConfig")]
 public class FinderConfig : SingletonScriptableObject<FinderConfig>
 {
     public List<FinderItem> items;

@@ -146,7 +146,7 @@ public partial class User
                     var story = StoryConfig.Instance.GetStory(condition.Alias);
                     if (story != null)
                     {
-                        AddTracking(ActionType.find_story, condition.Alias);
+                        AddTracking(ActionType.find_story, "", 0, condition.Alias);
                     }
                     break;
                 }

@@ -1,26 +1,33 @@
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GroupItemFinder : MonoBehaviour
 {
+    [ValueDropdown("GetGroupValue")]
     public string id;
     public Image icon;
-    public Slider slider;
+    public Image slider;
+    public TMP_Text amount;
+
+    private IEnumerable<string> GetGroupValue()
+    {
+        return FinderConfig.Instance.items.Select(x => x.Id);
+    }
 
     FinderItem data;
     void Start()
     {
         data = FinderConfig.Instance.Get(id);
         icon.sprite = data.Thumbnail;
-        {
-            slider.maxValue = data.amountItem;
-            slider.minValue = 0;
-            slider.value = User.AmountFinded(id);
-        }
+        slider.fillAmount = User.AmountFinded(id) / data.amountItem;
+        amount.text = User.AmountFinded(id) + "/" + data.amountItem;
         User.AddListenerOnFinded(OnUpdate);
     }
 
@@ -28,8 +35,9 @@ public class GroupItemFinder : MonoBehaviour
     {
         if (this.id.Equals(id))
         {
+            amount.text = User.AmountFinded(id) + "/" + data.amountItem;
             slider.DOKill();
-            slider.DOValue(User.AmountFinded(id), 0.3f).OnComplete(() =>
+            slider.DOFillAmount(User.AmountFinded(id) / data.amountItem, 0.3f).OnComplete(() =>
             {
                 if (User.AmountFinded(id) >= FinderConfig.Instance.Get(id).amountItem)
                 {
