@@ -46,15 +46,26 @@ MonoBehaviour:
       popupUp: popup-mapunlock
       alias: 
       custom: 
-  - title: open_dialog_
+  - title: open_dialog_story
     condition:
       type: 3
-      alias: 
+      alias: story
       number: 0
-      condition: open_dialog_
+      condition: open_dialog_story
     results:
     - type: 1
       popupUp: popup-story
+      alias: 
+      custom: 
+  - title: open_screen_win
+    condition:
+      type: 2
+      alias: win
+      number: 0
+      condition: open_screen_win
+    results:
+    - type: 1
+      popupUp: screen-win
       alias: 
       custom: 
   result: []

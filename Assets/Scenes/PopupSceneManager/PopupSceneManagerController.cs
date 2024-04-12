@@ -50,6 +50,7 @@ public partial class PopupSceneManagerController : MonoBehaviour
     public static void CloseCurrentPopup()
     {
         instance?.popup.current?.ClosePopup();
+        instance?.importal.current?.ClosePopup();
     }
 
     private void Awake()

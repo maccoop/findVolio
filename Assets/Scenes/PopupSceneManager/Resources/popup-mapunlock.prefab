@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 9019206007715734733}
   - component: {fileID: 8937170559290247402}
   - component: {fileID: 7769116744924066431}
-  - component: {fileID: 1320760650155935272}
+  - component: {fileID: 5279315594280780274}
   m_Layer: 5
   m_Name: popup-mapunlock
   m_TagString: Untagged
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1320760650155935272
+--- !u!114 &5279315594280780274
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,14 +193,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2219404553267358006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 250dea411ab405d48855ced0abb82738, type: 3}
+  m_Script: {fileID: 11500000, guid: 0505b7981e043a54a9d170e118df53dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationType: 0
+  animationType: 1
   disableInGameUI: 1
   showBG: 1
-  closeType: 0
-  timeClose: 0
+  hiddens:
+  - id: jacat
+    prefab: {fileID: 5433727949662722431}
+  - id: govo
+    prefab: {fileID: 4580665934308386411}
+  - id: frida
+    prefab: {fileID: 2977603998924717748}
+  - id: office
+    prefab: {fileID: 8442292320853240212}
 --- !u!1 &2977603998924717748
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,10 +604,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Close Btn
       objectReference: {fileID: 0}
-    - target: {fileID: 8512384245428973143, guid: 6f30d0e079b41604ca9000c7b8a4b286, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1320760650155935272}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

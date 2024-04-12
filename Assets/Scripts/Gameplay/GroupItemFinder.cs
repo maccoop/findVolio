@@ -25,7 +25,7 @@ public class GroupItemFinder : MonoBehaviour
     void Start()
     {
         data = FinderConfig.Instance.Get(id);
-        icon.sprite = data.Thumbnail;
+        //icon.sprite = data.Thumbnail;
         slider.fillAmount = User.AmountFinded(id) / data.amountItem;
         amount.text = User.AmountFinded(id) + "/" + data.amountItem;
         User.AddListenerOnFinded(OnUpdate);
