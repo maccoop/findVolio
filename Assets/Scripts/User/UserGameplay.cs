@@ -10,7 +10,7 @@ public partial class User
 
     public static void Finder(string id)
     {
-        var groupid = id.Split("_")[0];
+        var groupid = id.Split("_")[1];
         if (!finder.ContainsKey(groupid))
         {
             finder.Add(groupid, 0);
