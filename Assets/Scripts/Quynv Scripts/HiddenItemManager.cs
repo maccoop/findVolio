@@ -22,7 +22,7 @@ public class HiddenItemManager : SerializedMonoBehaviour
     {
         foreach (var listType in _allItems.Values)
         {
-            foreach(var item in listType)
+            foreach (var item in listType)
             {
                 item.onClick += OnClickItem;
                 item.Init();
@@ -33,5 +33,6 @@ public class HiddenItemManager : SerializedMonoBehaviour
     public void OnClickItem(HiddenItem item)
     {
         onPickHiddenItem?.Invoke(item);
+        User.AddTracking(ActionType.find_object, item.ItemName.ToString(), 0);
     }
 }
