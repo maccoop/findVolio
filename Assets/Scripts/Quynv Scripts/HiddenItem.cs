@@ -16,7 +16,7 @@ public class HiddenItem : MonoBehaviour,IEquatable<HiddenItem>
     private ItemState _state;
 
     public Action<HiddenItem> onClick;
-    public int Id => _id;
+    public int Id { get => _id ; set => _id = value; }
     public GroupType Type => _type;
     public ItemState State => _state;
     public string ItemName => _itemName;
@@ -37,10 +37,6 @@ public class HiddenItem : MonoBehaviour,IEquatable<HiddenItem>
         }
     }
 
-    private void Reset()
-    {
-        _id = GetHashCode();
-    }
     public bool Equals(HiddenItem other)
     {
         return _id == other._id;
